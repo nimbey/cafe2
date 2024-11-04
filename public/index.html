@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Timetable System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Form -->
+        <div id="loginForm" class="form-container">
+            <h2>Sign in to your account</h2>
+            <form onsubmit="return handleLogin(event)">
+                <div class="form-group">
+                    <input type="email" id="email" required placeholder="Email address">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" required placeholder="Password">
+                </div>
+                <button type="submit" class="btn-primary">Sign in</button>
+            </form>
+            <p>Don't have an account? <a href="#" onclick="showRegistration()">Register here</a></p>
+        </div>
+
+        <!-- Registration Form -->
+        <div id="registrationForm" class="form-container hidden">
+            <h2>Student Registration</h2>
+            <form onsubmit="return handleRegistration(event)">
+                <div class="form-group">
+                    <input type="text" id="regName" required placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="regEmail" required placeholder="Email address">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="regPassword" required placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <select id="grade" required>
+                        <option value="">Select Grade</option>
+                        <option value="9">Grade 9</option>
+                        <option value="10">Grade 10</option>
+                        <option value="11">Grade 11</option>
+                        <option value="12">Grade 12</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="adminDashboard" class="dashboard hidden">
+            <h1>Admin Dashboard</h1>
+            <div class="teacher-form">
+                <h2>Add New Teacher</h2>
+                <form onsubmit="return handleAddTeacher(event)">
+                    <div class="form-group">
+                        <input type="text" id="teacherName" required placeholder="Teacher Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="teacherEmail" required placeholder="Teacher Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="teacherPassword" required placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn-primary">Add Teacher</button>
+                </form>
+            </div>
+            <div class="teachers-list">
+                <h2>Teachers List</h2>
+                <div id="teachersList" class="grid"></div>
+            </div>
+        </div>
+
+        <!-- Teacher Dashboard -->
+        <div id="teacherDashboard" class="dashboard hidden">
+            <h1>Teacher Dashboard</h1>
+            <div class="schedule-grid" id="teacherSchedule"></div>
+        </div>
+
+        <!-- Student Dashboard -->
+        <div id="studentDashboard" class="dashboard hidden">
+            <h1>Student Dashboard</h1>
+            <div class="schedule-container">
+                <h2>My Schedule</h2>
+                <div class="schedule-grid" id="studentSchedule"></div>
+            </div>
+            <div class="courses-container">
+                <h2>Available Courses</h2>
+                <div class="courses-grid" id="availableCourses"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/teacher.js"></script>
+    <script src="js/student.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
